@@ -14,7 +14,7 @@ public class Player : LivingEntity
 
 	public override void Start()
     {
-		startingHealth = 10;
+		//startingHealth = 10;
 		base.Start();
 		controller = GetComponent<PlayerController>();
 		gunController = GetComponent<GunController>();
