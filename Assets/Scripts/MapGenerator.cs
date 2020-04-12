@@ -23,8 +23,19 @@ public class MapGenerator : MonoBehaviour
 
 	Map currentMap;
 
+	void Awake()
+	{
+		FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
+	}
+
 	void Start()
 	{
+		//GenerateMap();
+	}
+
+	void OnNewWave(int waveNumber)
+	{
+		mapIndex = waveNumber - 1;
 		GenerateMap();
 	}
 
@@ -157,7 +168,11 @@ public class MapGenerator : MonoBehaviour
 
 	public Transform GetTileFromPosition(Vector3 position)
 	{
-
+		int x = Mathf.RoundToInt(position.x / tileSize + (currentMap.mapSize.x - 1 - (currentMap.mapSize.x % 2 == 1 ? 1 : 0)) / 2f);
+		int y = Mathf.RoundToInt(position.z / tileSize + (currentMap.mapSize.y - 1 - (currentMap.mapSize.y % 2 == 1 ? 1 : 0)) / 2f);
+		x = Mathf.Clamp(x, 0, tileMap.GetLength(0) - 1);
+		y = Mathf.Clamp(y, 0, tileMap.GetLength(1) - 1);
+		return tileMap[x, y];
 	}
 
 	public Coord GetRandomCoord()
