@@ -13522,7 +13522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHold: {fileID: 261346591}
-  startingGun: {fileID: 6540817726885655647, guid: 684368118249c794dbe6248488e0bf66,
+  startingGun: {fileID: 7166554952139080999, guid: 15a6256f821f114408838a0eda6c9e6d,
     type: 3}
 --- !u!1 &696978510
 GameObject:
