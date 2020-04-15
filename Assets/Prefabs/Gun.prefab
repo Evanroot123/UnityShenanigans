@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7166554952139080999}
   - component: {fileID: 6577460445230680363}
   m_Layer: 0
-  m_Name: Gun 1
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,9 @@ Transform:
   m_Children:
   - {fileID: 2423156811718544831}
   - {fileID: 5971203741366357419}
+  - {fileID: 8420032229454110828}
   - {fileID: 4157122431028818055}
+  - {fileID: 6577460445153648431}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,11 +140,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c03d47745ef4f7448fb3fc59ed3e1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 5971203741366357419}
-  projectile: {fileID: 1610894718026204096, guid: daf453fe1fc630448ad55f05e432323f,
+  fireMode: 0
+  projectileSpawn:
+  - {fileID: 5971203741366357419}
+  - {fileID: 8420032229454110828}
+  projectile: {fileID: 8979512035916978414, guid: 6227f30ab95a98141b7f29627b84704a,
     type: 3}
   msBetweenShots: 10
   muzzleVelocity: 35
+  burstCount: 3
   shell: {fileID: 5862243214463072742, guid: 3d8507dd113fb9842af294ee2838d2fd, type: 3}
   shellEjection: {fileID: 4157122431028818055}
 --- !u!114 &6577460445230680363
@@ -195,7 +201,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5971203739317876549}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4728839960621495025
 GameObject:
@@ -288,6 +294,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5054139119018822042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8420032229454110828}
+  m_Layer: 0
+  m_Name: Muzzle2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8420032229454110828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054139119018822042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.135, z: 0.765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5971203739317876549}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5971203741366357418
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5971203741366357419}
   m_Layer: 0
-  m_Name: Muzzle
+  m_Name: Muzzle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,8 +350,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.135, z: 0.765}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6577460445153648431}
+  m_Children: []
   m_Father: {fileID: 5971203739317876549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -433,15 +468,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6577460445153648430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.03}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.13499999, z: 0.7950001}
   m_LocalScale: {x: 0.4430184, y: 0.4430184, z: 0.4430184}
   m_Children:
   - {fileID: 6577460445890561432}
   - {fileID: 6577460445204393745}
   - {fileID: 6577460445614767603}
-  m_Father: {fileID: 5971203741366357419}
-  m_RootOrder: 0
+  m_Father: {fileID: 5971203739317876549}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6577460445204393744
 GameObject:
@@ -569,10 +604,10 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.104
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
