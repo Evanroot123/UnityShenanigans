@@ -96,7 +96,7 @@ MonoBehaviour:
     m_Bits: 512
   trailColor: {r: 1, g: 0.022694906, b: 0.022694906, a: 1}
   speed: 10
-  damage: 1
+  damage: 5
 --- !u!96 &3809621482813909884
 TrailRenderer:
   serializedVersion: 2

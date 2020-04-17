@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
 			spawnTile = map.GetTileFromPosition(playerT.position);
 		}
 		Material tileMat = spawnTile.GetComponent<Renderer>().material;
-		Color originalColor = tileMat.color;
+		Color originalColor = Color.white;
 		Color flashColor = Color.red;
 		float spawnTimer = 0;
 
@@ -130,6 +130,11 @@ public class Spawner : MonoBehaviour
 
 	void NextWave()
 	{
+		if (currentWaveNumber > 0)
+		{
+			AudioManager.instance.PlaySound2D("Level Complete");
+		}
+
 		currentWaveNumber++;
 
 		if (currentWaveNumber - 1 < waves.Length)

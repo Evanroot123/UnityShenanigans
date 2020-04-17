@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 	public LayerMask collisionMask;
 	public Color trailColor;
 	public float speed = 10;
-	public float damage = 1;
+	public float damage = 5;
 
 	float lifetime = 3;
 	float skinWidth = .1f;

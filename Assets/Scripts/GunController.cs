@@ -5,15 +5,12 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
 	public Transform weaponHold;
-	public Gun startingGun;
+	public Gun[] allGuns;
 	Gun equippedGun;
 
 	void Start()
 	{
-		if (startingGun != null)
-		{
-			EquipGun(startingGun);
-		}
+
 	}
 
 	public void OnTriggerHold()
@@ -32,7 +29,17 @@ public class GunController : MonoBehaviour
 		}
 	}
 
-    public void EquipGun(Gun gunToEquip)
+	public float GunHeight
+	{
+		get { return weaponHold.position.y; }
+	}
+
+	public void EquipGun(int weaponIndex)
+	{
+		EquipGun(allGuns[2]);
+	}
+
+	public void EquipGun(Gun gunToEquip)
 	{
 		if (equippedGun != null)
 		{
@@ -41,5 +48,15 @@ public class GunController : MonoBehaviour
 
 		equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation) as Gun;
 		equippedGun.transform.parent = weaponHold;
+	}
+
+	public void Aim(Vector3 aimPoint)
+	{
+		equippedGun.Aim(aimPoint);
+	}
+
+	public void Reload()
+	{
+		equippedGun.Reload();
 	}
 }
